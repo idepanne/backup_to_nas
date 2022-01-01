@@ -22,7 +22,7 @@ echo ""
 echo "Source       :  /home/`echo "$var2"`/"
 echo "Destination  :  NAS_PATH:/`echo "$var1"`/`echo "$var2"`/"
 echo ""
-rclone sync -v -L -P --ignore-errors --exclude='VirtualBox VMs'/** /home/`echo "$var2"`/ NAS_PATH:/`echo "$var1"`/`echo "$var2"`/
+rclone sync -v -L -P --ignore-errors --exclude=snap/** --exclude='VirtualBox VMs'/** /home/`echo "$var2"`/ NAS_PATH:/`echo "$var1"`/`echo "$var2"`/
 echo ""
 echo ""
 echo "###############################################################################"
