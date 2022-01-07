@@ -2,8 +2,8 @@
 cd
 echo "###############################################################################"
 echo "#                                                                             #"
-echo "#                             Backup to NAS 2.1.1                             #"
-echo "#                   © 2021 iDépanne – L'expert informatique                   #"
+echo "#                             Backup to NAS 2.1.2                             #"
+echo "#                 © 2021-2022 iDépanne – L'expert informatique                 #"
 echo "#                           https://fb.me/idepanne/                           #"
 echo "#                            idepanne67@gmail.com                             #"
 echo "#                                                                             #"
