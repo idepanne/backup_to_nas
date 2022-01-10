@@ -13,7 +13,7 @@ echo ""
 var1=$(hostname)
 var2=$(whoami)
 echo "==============================================================================="
-echo -n "   • Sauvegarde de \"$var2\" en cours..."
+echo "   • Sauvegarde en cours..."
 echo "==============================================================================="
 echo ""
 echo -n "Nom d'hôte   :  "; echo "$var1"
@@ -23,7 +23,6 @@ echo "Source       :  /home/`echo "$var2"`/"
 echo "Destination  :  NAS_PATH:/`echo "$var1"`/`echo "$var2"`/"
 echo ""
 rclone sync -v -L -P --ignore-errors --exclude=snap/** --exclude='VirtualBox VMs'/** /home/`echo "$var2"`/ NAS_PATH:/`echo "$var1"`/`echo "$var2"`/
-echo ""
 echo ""
 echo "###############################################################################"
 echo "#                                                                             #"
