@@ -3,7 +3,8 @@ clear
 cd
 echo "###############################################################################"
 echo "#                                                                             #"
-echo "#                             Backup to NAS 2.2.0                             #"
+echo "#                             Backup to NAS 2.2.1                             #"
+echo "#                                  backup.sh                                  #"
 echo "#                 © 2021-2022 iDépanne – L'expert informatique                #"
 echo "#                           https://fb.me/idepanne/                           #"
 echo "#                            idepanne67@gmail.com                             #"
