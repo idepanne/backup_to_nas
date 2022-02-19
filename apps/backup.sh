@@ -3,17 +3,21 @@ clear
 cd
 echo "###############################################################################"
 echo "#                                                                             #"
-echo "#                             Backup to NAS 2.2.1                             #"
+echo "#                             Backup to NAS 2.2.2                             #"
 echo "#                                  backup.sh                                  #"
-echo "#                 © 2021-2022 iDépanne – L'expert informatique                #"
+echo "#                © 2020-2022 iDépanne – L'expert informatique                 #"
 echo "#                           https://fb.me/idepanne/                           #"
 echo "#                            idepanne67@gmail.com                             #"
 echo "#                                                                             #"
 echo "###############################################################################"
 echo ""
 echo ""
+
+###### Définition des variables ######
 var1=$(hostname)
 var2=$(whoami)
+######################################
+
 echo "==============================================================================="
 echo "                     **** Démarrage de la sauvegarde ****                      "
 echo "==============================================================================="
