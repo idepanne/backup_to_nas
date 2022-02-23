@@ -4,7 +4,7 @@ cd
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [222]                                    |"
+echo "|                                     [18]                                    |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                           https://fb.me/idepanne/                           |"
 echo "|                            idepanne67@gmail.com                             |"
