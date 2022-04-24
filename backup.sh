@@ -4,17 +4,18 @@ cd
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [27]                                     |"
+echo "|                                    [28]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
 echo ""
 echo ""
 echo ""
-
 varsys=$(cat /etc/os-release | grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 echo -n "Système      : "; echo "$varsys"
-
+echo ""
+echo ""
+echo ""
 if [[ $varsys == *"Manjaro"* ]]; then
 	varman=$(hostnamectl --static)
 	varusr=$(whoami)
