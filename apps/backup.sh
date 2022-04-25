@@ -4,7 +4,7 @@ cd
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [37]                                     |"
+echo "|                                    [38]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -14,7 +14,7 @@ varsys=$(cat /etc/os-release | grep PRETTY_NAME | cut -c14- | rev | cut -c2- | r
 echo -n "Système      :  "; echo "$varsys"
 echo ""
 echo ""
-if [[ $varsys == *"Manjaro"* ]]; then
+if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 	varman=$(hostnamectl --static)
 	varusr=$(whoami)
 	echo "+=============================================================================+"
