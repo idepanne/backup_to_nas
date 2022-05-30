@@ -4,14 +4,36 @@ cd
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [38]                                     |"
+echo "|                                    [40]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
 echo ""
 echo ""
+
+
+########## Définition des variables ##########
+
 varsys=$(cat /etc/os-release | grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
-echo -n "Système      :  "; echo "$varsys"
+
+vararchi1=$(uname -m)
+if [[ $vararchi1 == *"aarch64"* ]]; then
+	vararchi2="64 bits"
+else
+	vararchi2="32 bits"
+fi
+
+var-itfc-1=$(ls /usr/bin/*session)
+if [[ $var-itfc-1 == *"lxsession"* || $var-itfc-1 == *"openbox"*  || $var-itfc-1 == *"pipewire-media"*  || $var-itfc-1 == *"xfce"*  || $var-itfc-1 == *"gnome"*  || $var-itfc-1 == *"kde"* ]]; then
+	var-itfc-2="GUI"
+else
+	var-itfc-2="CLI"
+fi
+
+#############################################
+
+
+echo -n "Système      :  "; echo "$varsys - $vararchi2 - $var-itfc-2"
 echo ""
 echo ""
 if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
