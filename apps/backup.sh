@@ -4,7 +4,7 @@ cd
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [40]                                     |"
+echo "|                                    [43]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -23,17 +23,17 @@ else
 	vararchi2="32 bits"
 fi
 
-var-itfc-1=$(ls /usr/bin/*session)
-if [[ $var-itfc-1 == *"lxsession"* || $var-itfc-1 == *"openbox"*  || $var-itfc-1 == *"pipewire-media"*  || $var-itfc-1 == *"xfce"*  || $var-itfc-1 == *"gnome"*  || $var-itfc-1 == *"kde"* ]]; then
-	var-itfc-2="GUI"
+varitfc1=$(ls /usr/bin/*session)
+if [[ $varitfc1 == *"lxsession"* || $varitfc1 == *"openbox"*  || $varitfc1 == *"pipewire-media"*  || $varitfc1 == *"xfce"*  || $varitfc1 == *"gnome"*  || $varitfc1 == *"kde"* ]]; then
+	varitfc2="GUI"
 else
-	var-itfc-2="CLI"
+	varitfc2="CLI"
 fi
 
 #############################################
 
 
-echo -n "Système      :  "; echo "$varsys - $vararchi2 - $var-itfc-2"
+echo -n "Système      :  "; echo "$varsys - $vararchi2 - $varitfc2"
 echo ""
 echo ""
 if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
