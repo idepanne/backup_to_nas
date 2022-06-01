@@ -4,7 +4,7 @@ cd
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [44]                                     |"
+echo "|                                    [45]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -33,15 +33,17 @@ fi
 
 varitfc1=$(ls /usr/bin/*session)
 if [[ $varitfc1 == *"lxsession"* || $varitfc1 == *"openbox"* || $varitfc1 == *"pipewire-media"* || $varitfc1 == *"xfce"* || $varitfc1 == *"gnome"* || $varitfc1 == *"kde"* || $varitfc1 == *"cinnamon"* ]]; then
-	varitfc2="GUI"
+	varitfc2="Graphique (GUI)"
 else
-	varitfc2="CLI"
+	varitfc2="Lignes de commandes (CLI)"
 fi
 
 #############################################
 
 
-echo -n "Système      :  "; echo "$varsys - $vararchi2 - $varitfc2"
+echo -n "Système      :  "; echo "$varsys"
+echo -n "Processeur   :  "; echo "$vararchi2"
+echo -n "Interface    :  "; echo "$varitfc2"
 echo ""
 echo ""
 if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
