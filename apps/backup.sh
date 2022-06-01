@@ -4,7 +4,7 @@ cd
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [43]                                     |"
+echo "|                                    [44]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -17,14 +17,22 @@ echo ""
 varsys=$(cat /etc/os-release | grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 
 vararchi1=$(uname -m)
-if [[ $vararchi1 == *"aarch64"* ]]; then
-	vararchi2="64 bits"
+if [[ $vararchi1 == *"aarch"* ]]; then
+    if [[ $vararchi1 == *"aarch64"* ]]; then
+    	vararchi2="ARM 64 bits"
+    else
+    	vararchi2="ARM 32 bits"
+    fi
 else
-	vararchi2="32 bits"
+    if [[ $vararchi1 == *"x86_64"* ]]; then
+    	vararchi2="x86 64 bits"
+    else
+    	vararchi2="x86 32 bits"
+    fi
 fi
 
 varitfc1=$(ls /usr/bin/*session)
-if [[ $varitfc1 == *"lxsession"* || $varitfc1 == *"openbox"*  || $varitfc1 == *"pipewire-media"*  || $varitfc1 == *"xfce"*  || $varitfc1 == *"gnome"*  || $varitfc1 == *"kde"* ]]; then
+if [[ $varitfc1 == *"lxsession"* || $varitfc1 == *"openbox"* || $varitfc1 == *"pipewire-media"* || $varitfc1 == *"xfce"* || $varitfc1 == *"gnome"* || $varitfc1 == *"kde"* || $varitfc1 == *"cinnamon"* ]]; then
 	varitfc2="GUI"
 else
 	varitfc2="CLI"
