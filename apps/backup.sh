@@ -4,16 +4,14 @@ cd
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [45]                                     |"
+echo "|                                    [46]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
 echo ""
 echo ""
 
-
 ########## Définition des variables ##########
-
 varsys=$(cat /etc/os-release | grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 
 vararchi1=$(uname -m)
@@ -37,9 +35,7 @@ if [[ $varitfc1 == *"lxsession"* || $varitfc1 == *"openbox"* || $varitfc1 == *"p
 else
 	varitfc2="Lignes de commandes (CLI)"
 fi
-
 #############################################
-
 
 echo -n "Système      :  "; echo "$varsys"
 echo -n "Processeur   :  "; echo "$vararchi2"
