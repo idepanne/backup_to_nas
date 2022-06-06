@@ -4,7 +4,7 @@ cd
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [47]                                     |"
+echo "|                                    [48]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -17,15 +17,15 @@ varsys=$(cat /etc/os-release | grep PRETTY_NAME | cut -c14- | rev | cut -c2- | r
 vararchi1=$(uname -m)
 if [[ $vararchi1 == *"aarch"* ]]; then
     if [[ $vararchi1 == *"aarch64"* ]]; then
-    	vararchi2="ARM - 64 bits"
+    	vararchi2="ARM (64 bits)"
     else
-    	vararchi2="ARM - 32 bits"
+    	vararchi2="ARM (32 bits)"
     fi
 else
     if [[ $vararchi1 == *"x86_64"* ]]; then
-    	vararchi2="x86 - 64 bits"
+    	vararchi2="x86 (64 bits)"
     else
-    	vararchi2="x86 - 32 bits"
+    	vararchi2="x86 (32 bits)"
     fi
 fi
 
