@@ -4,7 +4,7 @@ cd
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [50]                                     |"
+echo "|                                    [51]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -30,10 +30,34 @@ else
 fi
 
 varitfc1=$(ls /usr/bin/*session)
-if [[ $varitfc1 == *"lxsession"* || $varitfc1 == *"openbox"* || $varitfc1 == *"pipewire-media"* || $varitfc1 == *"xfce"* || $varitfc1 == *"gnome"* || $varitfc1 == *"kde"* || $varitfc1 == *"cinnamon"* ]]; then
-	varitfc2="Graphique (GUI)"
+if [[ $varitfc1 == *"lxsession"* ]]; then
+    varitfc2="Graphique (LXDE)"
 else
-	varitfc2="Lignes de commandes (CLI)"
+    if [[ $varitfc1 == *"openbox"* ]]; then
+        varitfc2="Graphique (OpenBox)"
+    else
+        if [[ $varitfc1 == *"pipewire-media"* ]]; then
+            varitfc2="Graphique (Pipewire Media)"
+        else
+            if [[ $varitfc1 == *"xfce"* ]]; then
+                varitfc2="Graphique (Xfce)"
+            else
+                if [[ $varitfc1 == *"gnome"* ]]; then
+                    varitfc2="Graphique (Gnome)"
+                else
+                    if [[ $varitfc1 == *"kde"* ]]; then
+                        varitfc2="Graphique (KDE)"
+                    else
+                        if [[ $varitfc1 == *"cinnamon"* ]]; then
+                            varitfc2="Graphique (Cinnamon)"
+                        else
+                        	varitfc2="Lignes de commandes (CLI)"
+                        fi
+                    fi
+                fi
+            fi
+        fi
+    fi
 fi
 #############################################
 
