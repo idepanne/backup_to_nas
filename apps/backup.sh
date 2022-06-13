@@ -4,7 +4,7 @@ cd
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [51]                                     |"
+echo "|                                    [52]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -31,19 +31,19 @@ fi
 
 varitfc1=$(ls /usr/bin/*session)
 if [[ $varitfc1 == *"lxsession"* ]]; then
-    varitfc2="Graphique (LXDE)"
+    varitfc2="Graphique (LXDE/LXqt)"
 else
     if [[ $varitfc1 == *"openbox"* ]]; then
-        varitfc2="Graphique (OpenBox)"
+        varitfc2="Graphique (Openbox)"
     else
         if [[ $varitfc1 == *"pipewire-media"* ]]; then
-            varitfc2="Graphique (Pipewire Media)"
+            varitfc2="Graphique (PipeWire)"
         else
             if [[ $varitfc1 == *"xfce"* ]]; then
                 varitfc2="Graphique (Xfce)"
             else
                 if [[ $varitfc1 == *"gnome"* ]]; then
-                    varitfc2="Graphique (Gnome)"
+                    varitfc2="Graphique (GNOME)"
                 else
                     if [[ $varitfc1 == *"kde"* ]]; then
                         varitfc2="Graphique (KDE)"
@@ -62,8 +62,8 @@ fi
 #############################################
 
 echo -n "Système      :  "; echo "$varsys"
-echo -n "Processeur   :  "; echo "$vararchi2"
 echo -n "Interface    :  "; echo "$varitfc2"
+echo -n "Processeur   :  "; echo "$vararchi2"
 echo ""
 echo ""
 if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
