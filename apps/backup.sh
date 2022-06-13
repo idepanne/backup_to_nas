@@ -4,7 +4,7 @@ cd
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [55]                                     |"
+echo "|                                    [56]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -75,14 +75,14 @@ if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 	echo "Destination  :  NAS_PATH:/`echo "$varman"`/`echo "$varusr"`/"
 	echo ""
     echo ""	
-    echo "-------------------------------------------------------------------------------"
+    echo "+-----------------------------------------------------------------------------+"
 	echo "|                    **** Démarrage de la sauvegarde ****                     |"
     echo ""
     echo ""
 	rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.config/pulse --exclude=.anydesk --exclude='VirtualBox VMs'/** --delete-excluded /home/`echo "$varusr"`/ NAS_PATH:/`echo "$varman"`/`echo "$varusr"`/
 	echo ""
 	echo "|                        **** Sauvegarde terminée ****                        |"
-    echo "-------------------------------------------------------------------------------"
+    echo "+-----------------------------------------------------------------------------+"
 
 else
 
@@ -95,12 +95,12 @@ else
 	echo "Destination  :  NAS_PATH:/`echo "$vardeb"`/`echo "$varusr"`/"
 	echo ""
     echo ""
-    echo "-------------------------------------------------------------------------------"
+    echo "+-----------------------------------------------------------------------------+"
 	echo "|                    **** Démarrage de la sauvegarde ****                     |"
     echo ""
     echo ""
 	rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.config/pulse --exclude=.anydesk --exclude='VirtualBox VMs'/** --delete-excluded /home/`echo "$varusr"`/ NAS_PATH:/`echo "$vardeb"`/`echo "$varusr"`/
 	echo ""
 	echo "|                        **** Sauvegarde terminée ****                        |"
-    echo "-------------------------------------------------------------------------------"
+    echo "+-----------------------------------------------------------------------------+"
 fi
