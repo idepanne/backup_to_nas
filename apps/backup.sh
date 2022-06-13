@@ -4,7 +4,7 @@ cd
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [56]                                     |"
+echo "|                                    [57]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -77,10 +77,10 @@ if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
     echo ""	
     echo "+-----------------------------------------------------------------------------+"
 	echo "|                    **** Démarrage de la sauvegarde ****                     |"
-    echo ""
+	echo "|                                                                             |"
     echo ""
 	rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.config/pulse --exclude=.anydesk --exclude='VirtualBox VMs'/** --delete-excluded /home/`echo "$varusr"`/ NAS_PATH:/`echo "$varman"`/`echo "$varusr"`/
-	echo ""
+	echo "|                                                                             |"
 	echo "|                        **** Sauvegarde terminée ****                        |"
     echo "+-----------------------------------------------------------------------------+"
 
@@ -97,10 +97,10 @@ else
     echo ""
     echo "+-----------------------------------------------------------------------------+"
 	echo "|                    **** Démarrage de la sauvegarde ****                     |"
-    echo ""
+	echo "|                                                                             |"
     echo ""
 	rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.config/pulse --exclude=.anydesk --exclude='VirtualBox VMs'/** --delete-excluded /home/`echo "$varusr"`/ NAS_PATH:/`echo "$vardeb"`/`echo "$varusr"`/
-	echo ""
+	echo "|                                                                             |"
 	echo "|                        **** Sauvegarde terminée ****                        |"
     echo "+-----------------------------------------------------------------------------+"
 fi
