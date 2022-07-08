@@ -4,7 +4,7 @@ cd
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [66]                                     |"
+echo "|                                    [67]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -29,7 +29,7 @@ else
     fi
 fi
 
-varserv=($echo $XDG_SESSION_TYPE)
+varserv=$(echo $XDG_SESSION_TYPE)
 
 varitfc1=$(ls /usr/bin/*session)
 if [[ $varitfc1 == *"lxsession"* || $varitfc1 == *"openbox"* || $varitfc1 == *"pipewire-media"* || $varitfc1 == *"xfce"* || $varitfc1 == *"gnome"* || $varitfc1 == *"kde"* || $varitfc1 == *"cinnamon"* || $varitfc1 == *"mate"* ]]; then
