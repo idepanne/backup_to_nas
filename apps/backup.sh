@@ -4,7 +4,7 @@ cd
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [67]                                     |"
+echo "|                                    [68]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -33,9 +33,9 @@ varserv=$(echo $XDG_SESSION_TYPE)
 
 varitfc1=$(ls /usr/bin/*session)
 if [[ $varitfc1 == *"lxsession"* || $varitfc1 == *"openbox"* || $varitfc1 == *"pipewire-media"* || $varitfc1 == *"xfce"* || $varitfc1 == *"gnome"* || $varitfc1 == *"kde"* || $varitfc1 == *"cinnamon"* || $varitfc1 == *"mate"* ]]; then
-	varitfc2="Graphique (GUI - `echo "$varserv"`)"
+	varitfc2="Graphique (`echo "$varserv"`)"
 else
-	varitfc2="Lignes de commandes (CLI - `echo "$varserv"`)"
+	varitfc2="Lignes de commandes (`echo "$varserv"`)"
 fi
 #############################################
 
@@ -54,12 +54,12 @@ if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 	echo ""
     echo ""	
     echo "+-----------------------------------------------------------------------------+"
-	echo "|                    **** Démarrage de la sauvegarde ****                     |"
+	echo "|                   ***** Démarrage de la sauvegarde *****                    |"
 	echo ""
     echo ""
-	rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/`echo "$varusr"`/ NAS_PATH:/`echo "$varman"`/`echo "$varusr"`/
+	rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/`echo "$varusr"`/ NAS_PATH:/`echo "$varman"`/`echo "$varusr"`/
 	echo ""
-	echo "|                        **** Sauvegarde terminée ****                        |"
+	echo "|                       ***** Sauvegarde terminée *****                       |"
     echo "+-----------------------------------------------------------------------------+"
 
 else
@@ -74,11 +74,11 @@ else
 	echo ""
     echo ""
     echo "+-----------------------------------------------------------------------------+"
-	echo "|                    **** Démarrage de la sauvegarde ****                     |"
+	echo "|                   ***** Démarrage de la sauvegarde *****                    |"
 	echo ""
     echo ""
-	rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/`echo "$varusr"`/ NAS_PATH:/`echo "$vardeb"`/`echo "$varusr"`/
+	rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/`echo "$varusr"`/ NAS_PATH:/`echo "$vardeb"`/`echo "$varusr"`/
 	echo ""
-	echo "|                        **** Sauvegarde terminée ****                        |"
+	echo "|                       ***** Sauvegarde terminée *****                       |"
     echo "+-----------------------------------------------------------------------------+"
 fi
