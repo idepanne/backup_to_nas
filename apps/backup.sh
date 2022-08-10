@@ -4,7 +4,7 @@ cd || return
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [77]                                     |"
+echo "|                                    [78]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -61,6 +61,7 @@ if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
     echo "*        Fermez toutes vos applications avant de faire une sauvegarde,        *"
     echo "*       les fichiers en cours d'utilisation ne peuvent pas être copiés.       *"
     echo "*******************************************************************************"
+    sleep 2
     echo ""
     echo ""
     echo ""
@@ -89,6 +90,7 @@ else
     echo "*        Fermez toutes vos applications avant de faire une sauvegarde,        *"
     echo "*       les fichiers en cours d'utilisation ne peuvent pas être copiés.       *"
     echo "*******************************************************************************"
+    sleep 2
     echo ""
     echo ""
     echo ""
