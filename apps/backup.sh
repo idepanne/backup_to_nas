@@ -4,7 +4,7 @@ cd || return
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [78]                                     |"
+echo "|                                    [79]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -60,8 +60,10 @@ if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
     echo "****************************** /!\ Important /!\ ******************************"
     echo "*        Fermez toutes vos applications avant de faire une sauvegarde,        *"
     echo "*       les fichiers en cours d'utilisation ne peuvent pas être copiés.       *"
+    echo "*                                                                             *"
+    echo "*        Vous pouvez taper Ctrl+C pour annuler la sauvegarde en cours.        *"
     echo "*******************************************************************************"
-    sleep 2
+    sleep 5
     echo ""
     echo ""
     echo ""
@@ -89,8 +91,10 @@ else
     echo "****************************** /!\ Important /!\ ******************************"
     echo "*        Fermez toutes vos applications avant de faire une sauvegarde,        *"
     echo "*       les fichiers en cours d'utilisation ne peuvent pas être copiés.       *"
+    echo "*                                                                             *"
+    echo "*        Vous pouvez taper Ctrl+C pour annuler la sauvegarde en cours.        *"
     echo "*******************************************************************************"
-    sleep 2
+    sleep 5
     echo ""
     echo ""
     echo ""
