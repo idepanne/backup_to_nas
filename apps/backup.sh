@@ -1,11 +1,10 @@
 #!/bin/bash
 clear
-#cd
 cd || return
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [70]                                     |"
+echo "|                                    [71]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -13,7 +12,6 @@ echo ""
 echo ""
 
 ########## Définition des variables ##########
-#varsys=$(cat /etc/os-release | grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 
 vararchi1=$(uname -m)
@@ -31,19 +29,17 @@ else
     fi
 fi
 
-#varserv=$(echo $XDG_SESSION_TYPE)
 varserv=$XDG_SESSION_TYPE
 
 varitfc1=$(ls /usr/bin/*session)
 if [[ $varitfc1 == *"lxsession"* || $varitfc1 == *"openbox"* || $varitfc1 == *"pipewire-media"* || $varitfc1 == *"xfce"* || $varitfc1 == *"gnome"* || $varitfc1 == *"kde"* || $varitfc1 == *"cinnamon"* || $varitfc1 == *"mate"* ]]; then
-	#varitfc2="Graphique (`echo "$varserv"`)"
-    #varitfc2="Graphique ($(echo "$varserv"))"
     varitfc2="Graphique ($varserv)"
 else
-	#varitfc2="Lignes de commandes (`echo "$varserv"`)"
-    #varitfc2="Lignes de commandes ($(echo "$varserv"))"
     varitfc2="Lignes de commandes ($varserv)"
 fi
+
+ip=$(< ~/.config/rclone/rclone.conf grep host | cut -c8-)
+dest=$(< ~/.config/rclone/rclone.conf grep remote | cut -c20-)
 #############################################
 
 echo -n "Système      :  "; echo "$varsys"
@@ -56,20 +52,14 @@ if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 	echo -n "Ordinateur   :  "; echo "$varman"
 	echo -n "Utilisateur  :  "; echo "$varusr"
 	echo ""
-	#echo "Source       :  /home/`echo "$varusr"`/"
-    #echo "Source       :  /home/$(echo "$varusr")/"
     echo "Source       :  /home/$varusr/"
-	#echo "Destination  :  NAS_PATH:/`echo "$varman"`/`echo "$varusr"`/"
-    #echo "Destination  :  NAS_PATH:/$(echo "$varman")/$(echo "$varusr")/"
-    echo "Destination  :  NAS_PATH:/$varman/$varusr/"
+    echo "Destination  :  /$ip/$dest/$varman/$varusr/"
 	echo ""
     echo ""	
     echo "+-----------------------------------------------------------------------------+"
 	echo "|                   ***** Démarrage de la sauvegarde *****                    |"
 	echo ""
     echo ""
-	#rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/`echo "$varusr"`/ NAS_PATH:/`echo "$varman"`/`echo "$varusr"`/
-    #rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/$(echo "$varusr")/ NAS_PATH:/$(echo "$varman")/$(echo "$varusr")/
     rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/"$varusr"/ NAS_PATH:/"$varman"/"$varusr"/
 	echo ""
 	echo "|                       ***** Sauvegarde terminée *****                       |"
@@ -82,20 +72,14 @@ else
 	echo -n "Ordinateur   :  "; echo "$vardeb"
 	echo -n "Utilisateur  :  "; echo "$varusr"
 	echo ""
-	#echo "Source       :  /home/`echo "$varusr"`/"
-    #echo "Source       :  /home/$(echo "$varusr")/"
     echo "Source       :  /home/$varusr/"
-	#echo "Destination  :  NAS_PATH:/`echo "$vardeb"`/`echo "$varusr"`/"
-    #echo "Destination  :  NAS_PATH:/$(echo "$vardeb")/$(echo "$varusr")/"
-    echo "Destination  :  NAS_PATH:/$vardeb/$varusr/"
+    echo "Destination  :  /$ip/$dest/$vardeb/$varusr/"
 	echo ""
     echo ""
     echo "+-----------------------------------------------------------------------------+"
 	echo "|                   ***** Démarrage de la sauvegarde *****                    |"
 	echo ""
     echo ""
-	#rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/`echo "$varusr"`/ NAS_PATH:/`echo "$vardeb"`/`echo "$varusr"`/
-    #rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/$(echo "$varusr")/ NAS_PATH:/$(echo "$vardeb")/$(echo "$varusr")/
     rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/"$varusr"/ NAS_PATH:/"$vardeb"/"$varusr"/
 	echo ""
 	echo "|                       ***** Sauvegarde terminée *****                       |"
