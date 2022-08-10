@@ -5,7 +5,7 @@ cd || return
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [69]                                     |"
+echo "|                                    [70]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -37,10 +37,12 @@ varserv=$XDG_SESSION_TYPE
 varitfc1=$(ls /usr/bin/*session)
 if [[ $varitfc1 == *"lxsession"* || $varitfc1 == *"openbox"* || $varitfc1 == *"pipewire-media"* || $varitfc1 == *"xfce"* || $varitfc1 == *"gnome"* || $varitfc1 == *"kde"* || $varitfc1 == *"cinnamon"* || $varitfc1 == *"mate"* ]]; then
 	#varitfc2="Graphique (`echo "$varserv"`)"
-    varitfc2="Graphique ($(echo "$varserv"))"
+    #varitfc2="Graphique ($(echo "$varserv"))"
+    varitfc2="Graphique ($varserv)"
 else
 	#varitfc2="Lignes de commandes (`echo "$varserv"`)"
-    varitfc2="Lignes de commandes ($(echo "$varserv"))"
+    #varitfc2="Lignes de commandes ($(echo "$varserv"))"
+    varitfc2="Lignes de commandes ($varserv)"
 fi
 #############################################
 
@@ -55,9 +57,11 @@ if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 	echo -n "Utilisateur  :  "; echo "$varusr"
 	echo ""
 	#echo "Source       :  /home/`echo "$varusr"`/"
-    echo "Source       :  /home/$(echo "$varusr")/"
+    #echo "Source       :  /home/$(echo "$varusr")/"
+    echo "Source       :  /home/$varusr/"
 	#echo "Destination  :  NAS_PATH:/`echo "$varman"`/`echo "$varusr"`/"
-    echo "Destination  :  NAS_PATH:/$(echo "$varman")/$(echo "$varusr")/"
+    #echo "Destination  :  NAS_PATH:/$(echo "$varman")/$(echo "$varusr")/"
+    echo "Destination  :  NAS_PATH:/$varman/$varusr/"
 	echo ""
     echo ""	
     echo "+-----------------------------------------------------------------------------+"
@@ -65,7 +69,8 @@ if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 	echo ""
     echo ""
 	#rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/`echo "$varusr"`/ NAS_PATH:/`echo "$varman"`/`echo "$varusr"`/
-    rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/$(echo "$varusr")/ NAS_PATH:/$(echo "$varman")/$(echo "$varusr")/
+    #rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/$(echo "$varusr")/ NAS_PATH:/$(echo "$varman")/$(echo "$varusr")/
+    rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/"$varusr"/ NAS_PATH:/"$varman"/"$varusr"/
 	echo ""
 	echo "|                       ***** Sauvegarde terminée *****                       |"
     echo "+-----------------------------------------------------------------------------+"
@@ -78,9 +83,11 @@ else
 	echo -n "Utilisateur  :  "; echo "$varusr"
 	echo ""
 	#echo "Source       :  /home/`echo "$varusr"`/"
-    echo "Source       :  /home/$(echo "$varusr")/"
+    #echo "Source       :  /home/$(echo "$varusr")/"
+    echo "Source       :  /home/$varusr/"
 	#echo "Destination  :  NAS_PATH:/`echo "$vardeb"`/`echo "$varusr"`/"
-    echo "Destination  :  NAS_PATH:/$(echo "$vardeb")/$(echo "$varusr")/"
+    #echo "Destination  :  NAS_PATH:/$(echo "$vardeb")/$(echo "$varusr")/"
+    echo "Destination  :  NAS_PATH:/$vardeb/$varusr/"
 	echo ""
     echo ""
     echo "+-----------------------------------------------------------------------------+"
@@ -88,7 +95,8 @@ else
 	echo ""
     echo ""
 	#rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/`echo "$varusr"`/ NAS_PATH:/`echo "$vardeb"`/`echo "$varusr"`/
-    rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/$(echo "$varusr")/ NAS_PATH:/$(echo "$vardeb")/$(echo "$varusr")/
+    #rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/$(echo "$varusr")/ NAS_PATH:/$(echo "$vardeb")/$(echo "$varusr")/
+    rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/"$varusr"/ NAS_PATH:/"$vardeb"/"$varusr"/
 	echo ""
 	echo "|                       ***** Sauvegarde terminée *****                       |"
     echo "+-----------------------------------------------------------------------------+"
