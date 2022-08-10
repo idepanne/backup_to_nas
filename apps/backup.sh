@@ -4,7 +4,7 @@ cd || return
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [73]                                     |"
+echo "|                                    [74]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -75,21 +75,21 @@ if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 
 else
 
-	vardeb=$(hostname)
-	varusr=$(whoami)
-	echo -n "Ordinateur   :  "; echo "$vardeb"
-	echo -n "Utilisateur  :  "; echo "$varusr"
-	echo ""
+    vardeb=$(hostname)
+    varusr=$(whoami)
+    echo -n "Ordinateur   :  "; echo "$vardeb"
+    echo -n "Utilisateur  :  "; echo "$varusr"
+    echo ""
     echo "Source       :  /home/$varusr/"
     echo "Destination  :  /$ip/$dest/$vardeb/$varusr/"
-	echo ""
+    echo ""
     echo ""
     echo "+-----------------------------------------------------------------------------+"
-	echo "|                   ***** Démarrage de la sauvegarde *****                    |"
-	echo ""
+    echo "|                   ***** Démarrage de la sauvegarde *****                    |"
+    echo ""
     echo ""
     rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/"$varusr"/ NAS_PATH:/"$vardeb"/"$varusr"/
-	echo ""
-	echo "|                       ***** Sauvegarde terminée *****                       |"
+    echo ""
+    echo "|                       ***** Sauvegarde terminée *****                       |"
     echo "+-----------------------------------------------------------------------------+"
 fi
