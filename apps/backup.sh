@@ -4,7 +4,7 @@ cd || return
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [80]                                     |"
+echo "|                                    [81]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -12,7 +12,7 @@ echo ""
 echo ""
 
 ########## Définition des variables ##########
-varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
+varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c13-)
 
 vararchi1=$(uname -m)
 if [[ $vararchi1 == *"aarch"* ]]; then
@@ -46,8 +46,8 @@ echo -n "Système      :  "; echo "$varsys"
 echo -n "Processeur   :  "; echo "$vararchi2"
 echo -n "Interface    :  "; echo "$varitfc2"
 echo ""
-if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
-    varman=$(hostnamectl --static)
+if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* || $varsys == *"EndeavourOS"* ]]; then
+    varman=$(uname -n)
     varusr=$(whoami)
     echo -n "Ordinateur   :  "; echo "$varman"
     echo -n "Utilisateur  :  "; echo "$varusr"
@@ -78,7 +78,7 @@ if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* ]]; then
 
 else
 
-    vardeb=$(hostname)
+    vardeb=$(uname -n)
     varusr=$(whoami)
     echo -n "Ordinateur   :  "; echo "$vardeb"
     echo -n "Utilisateur  :  "; echo "$varusr"
