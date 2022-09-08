@@ -4,7 +4,7 @@ cd || return
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [81]                                     |"
+echo "|                                    [82]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -12,7 +12,12 @@ echo ""
 echo ""
 
 ########## Définition des variables ##########
-varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c13-)
+varsys=$(< /etc/os-release grep PRETTY_NAME)
+if [[ $varsys == *"EndeavourOS"* ]]; then
+    varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c13-)
+else
+    varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
+fi
 
 vararchi1=$(uname -m)
 if [[ $vararchi1 == *"aarch"* ]]; then
@@ -46,64 +51,31 @@ echo -n "Système      :  "; echo "$varsys"
 echo -n "Processeur   :  "; echo "$vararchi2"
 echo -n "Interface    :  "; echo "$varitfc2"
 echo ""
-if [[ $varsys == *"MANJARO"* || $varsys == *"Manjaro"* || $varsys == *"EndeavourOS"* ]]; then
-    varman=$(uname -n)
-    varusr=$(whoami)
-    echo -n "Ordinateur   :  "; echo "$varman"
-    echo -n "Utilisateur  :  "; echo "$varusr"
-    echo ""
-    echo "Source       :  /home/$varusr/"
-    echo "Destination  :  /$ip/$dest/$varman/$varusr/"
-    echo ""
-    echo ""
-    echo ""
-    echo "****************************** /!\ Important /!\ ******************************"
-    echo "*        Fermez toutes vos applications avant de faire une sauvegarde,        *"
-    echo "*       les fichiers en cours d'utilisation ne peuvent pas être copiés.       *"
-    echo "*                                                                             *"
-    echo "*             Pressez Ctrl+C pour annuler la sauvegarde en cours.             *"
-    echo "*******************************************************************************"
-    sleep 5
-    echo ""
-    echo ""
-    echo ""
-    echo "+-----------------------------------------------------------------------------+"
-    echo "|                   ***** Démarrage de la sauvegarde *****                    |"
-    echo ""
-    echo ""
-    rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/"$varusr"/ NAS_PATH:/"$varman"/"$varusr"/
-    echo ""
-    echo "|                       ***** Sauvegarde terminée *****                       |"
-    echo "+-----------------------------------------------------------------------------+"
-
-else
-
-    vardeb=$(uname -n)
-    varusr=$(whoami)
-    echo -n "Ordinateur   :  "; echo "$vardeb"
-    echo -n "Utilisateur  :  "; echo "$varusr"
-    echo ""
-    echo "Source       :  /home/$varusr/"
-    echo "Destination  :  /$ip/$dest/$vardeb/$varusr/"
-    echo ""
-    echo ""
-    echo ""
-    echo "****************************** /!\ Important /!\ ******************************"
-    echo "*        Fermez toutes vos applications avant de faire une sauvegarde,        *"
-    echo "*       les fichiers en cours d'utilisation ne peuvent pas être copiés.       *"
-    echo "*                                                                             *"
-    echo "*        Vous pouvez taper Ctrl+C pour annuler la sauvegarde en cours.        *"
-    echo "*******************************************************************************"
-    sleep 5
-    echo ""
-    echo ""
-    echo ""
-    echo "+-----------------------------------------------------------------------------+"
-    echo "|                   ***** Démarrage de la sauvegarde *****                    |"
-    echo ""
-    echo ""
-    rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/"$varusr"/ NAS_PATH:/"$vardeb"/"$varusr"/
-    echo ""
-    echo "|                       ***** Sauvegarde terminée *****                       |"
-    echo "+-----------------------------------------------------------------------------+"
-fi
+varcmp=$(uname -n)
+varusr=$(whoami)
+echo -n "Ordinateur   :  "; echo "$varcmp"
+echo -n "Utilisateur  :  "; echo "$varusr"
+echo ""
+echo "Source       :  /home/$varusr/"
+echo "Destination  :  /$ip/$dest/$varcmp/$varusr/"
+echo ""
+echo ""
+echo ""
+echo "****************************** /!\ Important /!\ ******************************"
+echo "*        Fermez toutes vos applications avant de faire une sauvegarde,        *"
+echo "*       les fichiers en cours d'utilisation ne peuvent pas être copiés.       *"
+echo "*                                                                             *"
+echo "*             Pressez Ctrl+C pour annuler la sauvegarde en cours.             *"
+echo "*******************************************************************************"
+sleep 5
+echo ""
+echo ""
+echo ""
+echo "+-----------------------------------------------------------------------------+"
+echo "|                   ***** Démarrage de la sauvegarde *****                    |"
+echo ""
+echo ""
+rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/"$varusr"/ NAS_PATH:/"$varcmp"/"$varusr"/
+echo ""
+echo "|                       ***** Sauvegarde terminée *****                       |"
+echo "+-----------------------------------------------------------------------------+"
