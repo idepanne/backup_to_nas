@@ -4,7 +4,7 @@ cd || return
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [82]                                     |"
+echo "|                                    [83]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -14,33 +14,33 @@ echo ""
 ########## Définition des variables ##########
 varsys=$(< /etc/os-release grep PRETTY_NAME)
 if [[ $varsys == *"EndeavourOS"* ]]; then
-    varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c13-)
+	varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c13-)
 else
-    varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
+	varsys=$(< /etc/os-release grep PRETTY_NAME | cut -c14- | rev | cut -c2- | rev)
 fi
 
 vararchi1=$(uname -m)
 if [[ $vararchi1 == *"aarch"* ]]; then
-    if [[ $vararchi1 == *"aarch64"* ]]; then
-    	vararchi2="ARM (64 bits)"
-    else
-    	vararchi2="ARM (32 bits)"
-    fi
+	if [[ $vararchi1 == *"aarch64"* ]]; then
+		vararchi2="ARM (64 bits)"
+	else
+		vararchi2="ARM (32 bits)"
+	fi
 else
-    if [[ $vararchi1 == *"x86_64"* ]]; then
-    	vararchi2="x86 (64 bits)"
-    else
-    	vararchi2="x86 (32 bits)"
-    fi
+	if [[ $vararchi1 == *"x86_64"* ]]; then
+		vararchi2="x86 (64 bits)"
+	else
+		vararchi2="x86 (32 bits)"
+	fi
 fi
 
 varserv=$XDG_SESSION_TYPE
 
 varitfc1=$(ls /usr/bin/*session)
 if [[ $varitfc1 == *"lxsession"* || $varitfc1 == *"openbox"* || $varitfc1 == *"pipewire-media"* || $varitfc1 == *"xfce"* || $varitfc1 == *"gnome"* || $varitfc1 == *"kde"* || $varitfc1 == *"cinnamon"* || $varitfc1 == *"mate"* ]]; then
-    varitfc2="Graphique ($varserv)"
+	varitfc2="Graphique ($varserv)"
 else
-    varitfc2="Lignes de commandes ($varserv)"
+	varitfc2="Lignes de commandes ($varserv)"
 fi
 
 ip=$(< ~/.config/rclone/rclone.conf grep host | cut -c8-)
