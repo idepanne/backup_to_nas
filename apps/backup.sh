@@ -4,7 +4,7 @@ cd || return
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [88]                                     |"
+echo "|                                    [89]                                     |"
 echo "|                © 2020-2022 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -77,7 +77,7 @@ echo "+-------------------------------------------------------------------------
 echo "|                   ***** Démarrage de la sauvegarde *****                    |"
 echo ""
 echo ""
-rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --delete-excluded /home/"$varusr"/ NAS_PATH:/"$varcmp"/"$varusr"/
+rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=.zoom/** --exclude=.local/share/Steam/** --exclude=.steam/** --delete-excluded /home/"$varusr"/ NAS_PATH:/"$varcmp"/"$varusr"/
 echo ""
 echo "|                       ***** Sauvegarde terminée *****                       |"
 echo "+-----------------------------------------------------------------------------+"
