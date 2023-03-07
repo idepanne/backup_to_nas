@@ -4,7 +4,7 @@ cd || return
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [96]                                     |"
+echo "|                                    [97]                                     |"
 echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 echo "|                            idepanne67@gmail.com                             |"
 echo "+=============================================================================+"
@@ -65,7 +65,7 @@ echo "*       les fichiers en cours d'utilisation ne peuvent pas être copiés. 
 echo "*                                                                             *"
 echo "*             Pressez Ctrl+C pour annuler la sauvegarde en cours.             *"
 echo "*******************************************************************************"
-sleep 5
+sleep 3
 echo ""
 echo ""
 echo ""
