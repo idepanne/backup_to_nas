@@ -3,7 +3,7 @@ cd || return
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [102]                                    |"
+echo "|                                    [103]                                    |"
 echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 echo "|                        idepanne.support.tech@free.fr                        |"
 echo "+=============================================================================+"
@@ -74,7 +74,7 @@ echo "+-------------------------------------------------------------------------
 echo "|                   ***** Démarrage de la sauvegarde *****                    |"
 echo ""
 echo ""
-rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.cache/** --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=Qemu/** --exclude=.zoom/** --exclude=.local/share/Steam/** --exclude=.steam/** --exclude=.local/share/'Euro Truck Simulator 2'/** --exclude=.var/app/com.valvesoftware.Steam/** --exclude=.var/app/com.valvesoftware.Steam/.steampath --exclude=.steampath --exclude=.steampid --delete-excluded /home/"$varusr"/ NAS_PATH:/"$varcmp"/"$varusr"/
+rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.cache/** --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=Qemu/** --exclude=.zoom/** --exclude=.local/share/Steam/** --exclude=.steam/** --exclude=.local/share/'Euro Truck Simulator 2'/** --exclude=.var/app/com.valvesoftware.Steam/** --exclude=.var/app/com.valvesoftware.Steam/.steampath --exclude=.steampath --exclude=.steampid --exclude=Apps/log/$(hostname -s)_$(date --date="+1day" +"%Y%m%d")_backup.txt --delete-excluded /home/"$varusr"/ NAS_PATH:/"$varcmp"/"$varusr"/
 echo ""
 echo "|                       ***** Sauvegarde terminée *****                       |"
 echo "+-----------------------------------------------------------------------------+"
