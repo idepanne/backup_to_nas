@@ -4,7 +4,7 @@ cd || return
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [106]                                    |"
+echo "|                                    [107]                                    |"
 echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 echo "|                        idepanne.support.tech@free.fr                        |"
 echo "+=============================================================================+"
@@ -75,7 +75,9 @@ echo "+-------------------------------------------------------------------------
 echo "|                   ***** Démarrage de la sauvegarde *****                    |"
 echo ""
 echo ""
-rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.cache/** --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=Qemu/** --exclude=.zoom/** --exclude=.local/share/Steam/** --exclude=.steam/** --exclude=.local/share/'Euro Truck Simulator 2'/** --exclude=.var/app/com.valvesoftware.Steam/** --exclude=.var/app/com.valvesoftware.Steam/.steampath --exclude=.steampath --exclude=.steampid --exclude=.minecraft/** --delete-excluded /home/"$varusr"/ NAS_PATH:/"$varcmp"/"$varusr"/
+#rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.cache/** --exclude=.config/pulse/** --exclude=.config/discord/** --exclude=.config/molotov/** --exclude=.config/skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=Qemu/** --exclude=.zoom/** --exclude=.local/share/Steam/** --exclude=.steam/** --exclude=.local/share/'Euro Truck Simulator 2'/** --exclude=.var/app/com.valvesoftware.Steam/** --exclude=.var/app/com.valvesoftware.Steam/.steampath --exclude=.steampath --exclude=.steampid --exclude=.minecraft/** --delete-excluded /home/"$varusr"/ NAS_PATH:/"$varcmp"/"$varusr"/
+
+rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.cache/** --exclude=pulse/** --exclude=discord/** --exclude=molotov/** --exclude=skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=Qemu/** --exclude=.zoom/** --exclude=Steam/** --exclude=.steam/** --exclude='Euro Truck Simulator 2'/** --exclude=com.valvesoftware.Steam/** --exclude=.steampath/** --exclude=.steampid/** --exclude=.minecraft/** --delete-excluded /home/"$varusr"/ NAS_PATH:/"$varcmp"/"$varusr"/
 echo ""
 echo "|                       ***** Sauvegarde terminée *****                       |"
 echo "+-----------------------------------------------------------------------------+"
