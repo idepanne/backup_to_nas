@@ -1,6 +1,6 @@
 Backup to NAS
 guide_installation.txt
-[120]
+[122]
 © 2020-2023 iDépanne – L'expert informatique
 idepanne.support.tech@free.fr
 
