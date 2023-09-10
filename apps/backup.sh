@@ -4,7 +4,7 @@ cd || return
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [120]                                    |"
+echo "|                                    [121]                                    |"
 echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 echo "|                        idepanne.support.tech@free.fr                        |"
 echo "+=============================================================================+"
@@ -78,7 +78,7 @@ echo ""
 #rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=.dbus/** --exclude=.cloud-ipc-socket --exclude=.cache/** --exclude=pulse/** --exclude=discord/** --exclude=molotov/** --exclude=skypeforlinux/** --exclude=.anydesk/** --exclude='VirtualBox VMs'/** --exclude=Qemu/** --exclude=.local/share/gnome-boxes/** --exclude=.zoom/** --exclude=Steam/** --exclude=.steam/** --exclude='Euro Truck Simulator 2'/** --exclude=com.valvesoftware.Steam/** --exclude=.steampath/** --exclude=.steampid/** --exclude=.minecraft/** --exclude=parcellite/** --exclude=.SynologyDrive/** --exclude=.var/app/** --exclude=.config/google-chrome/SingletonCookie --exclude=.config/google-chrome/SingletonLock --exclude=.config/google-chrome/SingletonSocket --delete-excluded /home/"$varusr"/ NAS_PATH:/"$varcmp"/"$varusr"/
 
 
-rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=snap/** --exclude=pulse/** --exclude=discord/** --exclude=molotov/** --exclude=skypeforlinux/** --exclude='VirtualBox VMs'/** --exclude=Qemu/** --exclude=Steam/** --exclude='Euro Truck Simulator 2'/** --exclude=com.valvesoftware.Steam/** --exclude=parcellite/** --exclude ".**" --delete-excluded /home/"$varusr"/ NAS_PATH:/"$varcmp"/"$varusr"/
+rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=**/.** --exclude=/.** --exclude=snap/** --exclude=pulse/** --exclude=discord/** --exclude=molotov/** --exclude=skypeforlinux/** --exclude='VirtualBox VMs'/** --exclude=Qemu/** --exclude=Steam/** --exclude='Euro Truck Simulator 2'/** --exclude=com.valvesoftware.Steam/** --exclude=parcellite/** --delete-excluded /home/"$varusr"/ NAS_PATH:/"$varcmp"/"$varusr"/
 echo ""
 echo "|                       ***** Sauvegarde terminée *****                       |"
 echo "+-----------------------------------------------------------------------------+"
