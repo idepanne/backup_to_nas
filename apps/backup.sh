@@ -4,7 +4,7 @@ cd || return
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [124]                                    |"
+echo "|                                    [125]                                    |"
 echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 echo "|                        idepanne.support.tech@free.fr                        |"
 echo "+=============================================================================+"
@@ -67,7 +67,7 @@ echo "*                                                                         
 echo "*             Pressez Ctrl+C pour annuler la sauvegarde en cours.             *"
 echo "*                                                                             *"
 echo "*******************************************************************************"
-sleep 2
+sleep 3
 echo ""
 echo ""
 echo ""
@@ -90,8 +90,7 @@ if ping -c 3 $ip; then
     echo "+-----------------------------------------------------------------------------+"
 else
     echo ""
-    echo ""
-	echo "Serveur NAS introuvable !"
+	echo "Serveur NAS introuvable"
     echo ""
     echo ""
     echo "+-----------------------------------------------------------------------------+"
