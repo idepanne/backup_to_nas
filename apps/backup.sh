@@ -4,7 +4,7 @@ cd || return
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [126]                                    |"
+echo "|                                    [127]                                    |"
 echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 echo "|                        idepanne.support.tech@free.fr                        |"
 echo "+=============================================================================+"
@@ -88,6 +88,9 @@ if ping -c 3 $ip; then
     echo ""
     echo "|                       ***** Sauvegarde terminée *****                       |"
     echo "+-----------------------------------------------------------------------------+"
+    echo ""
+    echo ""
+    echo "Déconnexion du serveur NAS"
 else
     echo ""
 	echo "[X] Serveur NAS introuvable !"
