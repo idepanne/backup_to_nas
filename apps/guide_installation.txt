@@ -1,6 +1,6 @@
 Backup to NAS
 guide_installation.txt
-[132]
+[133]
 © 2020-2023 iDépanne – L'expert informatique
 idepanne.support.tech@free.fr
 
@@ -15,7 +15,7 @@ Prérequis :
 
 1. Installation de Rclone :
 
-- Pour les distributions Linux basées sur Arch Linux : 
+- Pour les distributions Linux basées sur Arch Linux :
 $ sudo pacman -S --needed rclone && rclone version ; cd && mkdir Apps
 
 - Pour les distributions Linux basées sur Debian Linux :
