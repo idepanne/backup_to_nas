@@ -1,10 +1,9 @@
 #!/bin/bash
-clear
 cd || return
 echo "+=============================================================================+"
 echo "|                                Backup to NAS                                |"
 echo "|                                  backup.sh                                  |"
-echo "|                                    [133]                                    |"
+echo "|                                    [134]                                    |"
 echo "|                © 2020-2023 iDépanne – L'expert informatique                 |"
 echo "|                        idepanne.support.tech@free.fr                        |"
 echo "+=============================================================================+"
@@ -68,7 +67,7 @@ if ping -c 3 $ip; then
     echo "|                   ***** Démarrage de la sauvegarde *****                    |"
     echo ""
     echo ""
-    rclone sync -v -L -P --create-empty-src-dirs --ignore-errors --exclude=**/.** --exclude=/.** --exclude=snap/** --exclude=pulse/** --exclude=discord/** --exclude=molotov/** --exclude=skypeforlinux/** --exclude='VirtualBox VMs'/** --exclude=Qemu/** --exclude=Steam/** --exclude='Euro Truck Simulator 2'/** --exclude=com.valvesoftware.Steam/** --exclude=parcellite/** --delete-excluded /home/"$varusr"/ NAS_PATH:/"$varcmp"/"$varusr"/
+    rclone sync -L -P --create-empty-src-dirs --ignore-errors --exclude=**/.** --exclude=/.** --exclude=snap/** --exclude=pulse/** --exclude=discord/** --exclude=molotov/** --exclude=skypeforlinux/** --exclude='VirtualBox VMs'/** --exclude=Qemu/** --exclude=Steam/** --exclude='Euro Truck Simulator 2'/** --exclude=com.valvesoftware.Steam/** --exclude=parcellite/** --delete-excluded /home/"$varusr"/ NAS_PATH:/"$varcmp"/"$varusr"/
     echo ""
     echo "|                       ***** Sauvegarde terminée *****                       |"
     echo "+-----------------------------------------------------------------------------+"
